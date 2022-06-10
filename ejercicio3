@@ -1,0 +1,20 @@
+	@RestController
+	@postMapping(“/validaPuesto”)
+	public ResponseEntity() validaPuesto (DTODatosRequest params){
+	JSONObject parametros = new JSONObject();
+	parametros.put(“ID_JOB”, params.get(“job_id”))
+try{
+	return ResponseEntity.ok(asValidaPuesto. validaPuesto (parámetros,params));
+	}catch(exception e)
+	return ResponseEntity.status(httpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+	asAgregarHorasTrabajadas
+	int existeTrabajo;
+	DTODatosFecha = dao.getDatos(params.set(“id_job”));
+	existeTrabajo = dao.getExiste(params.set(“id_job”));
+	if(existeTrabajo ==0){
+	return “no existe el puesto”;
+	}
+	
+Return new DTOResponse(daoValidaPuesto.consulta(params));
