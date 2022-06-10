@@ -1,0 +1,36 @@
+	@RestController
+	@postMapping(“/agregarHorasTrabajadas”)
+	public ResponseEntity() agregarHorasTrabajadas (DTODatosRequest params){
+	JSONObject parametros = new JSONObject();
+	
+	parametros.put(“ID_EMPLOYEE”, params.get(“employee_id”))
+	parametros.put(“WORKED_HOURS”, params.get(“worked_hours”))
+	parametros.put(“WORKED_DATE”, params.get(“worked_date”))
+	try{
+	return ResponseEntity.ok(asAgregarHorasTrabajadas.agregaHorasTrabajadas (parámetros,params));
+	}catch(exception e)
+	return ResponseEntity.status(httpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+	asAgregarHorasTrabajadas
+	int empleadoExiste;
+	int horasTrabajadas;
+	date FechaTrabajada = params.get(“worked_date”);
+	
+	horasTrabajadas= params.get(“worked_hours”);
+	DTODatosFecha = dao.getDatos(params.set(“employee_id”));
+	empleadoExiste= dao.getExiste(params.set(“employee_id”));
+	if(empleadoExiste==0){
+	return “no existe el empleado”;
+	}
+	if(horasTrabajadas>20){
+	return ”se excedió las horas de trabajo”;
+	}
+	if(FechaTrabajada>fechaActual){
+	return “Fecha erronea”;
+	}
+	if(DTODatosFecha.workedDate().equals(fechaActual)){
+	return “Ya existe registro de horas trabajadas”;
+	}
+	
+Return new DTOResponse(daoAgregarHorasTrabajadas.agregar(params));
