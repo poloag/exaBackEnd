@@ -1,0 +1,31 @@
+	@RestController
+	@postMapping(“/consultaPago”)
+	public ResponseEntity() consultaPago (DTODatosRequest params){
+	JSONObject parametros = new JSONObject();
+	parametros.put(“ID_EMPLOYEE”, params.get(“employee_id”))
+	parametros.put(“START_DATE”, params.get(“start_date”))
+	parametros.put(“END_DATE”, params.get(“end_date”))
+try{
+	return ResponseEntity.ok(asConsultaPago. consultaPago (parámetros,params));
+	}catch(exception e)
+	return ResponseEntity.status(httpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+	asConsultaPago
+	int existeEmpleado;
+	DTOConsultaPago = dao.getDatos(params.set(“employee_id”));
+	existeEmpleado = dao.getExiste(params.set(“employee_id”));
+	if(existeEmpleado ==0){
+	return “no existe el empleado”;
+	}
+	SimpleDateFormat dateFormat = new 
+	                SimpleDateFormat ("yyyy-MM-dd");
+	            Date date1 = dateFormat.parse(params.get(“start_date”)
+	);
+	            Date date2 = dateFormat.parse(params.get(“end_date”)
+	);
+	if(date1.after(date2)) { 
+	return “dato inicial incorrecto”;
+	}
+	
+Return new DTOResponse(daoConsultaPago.consulta(params));
