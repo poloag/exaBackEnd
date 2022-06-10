@@ -1,0 +1,44 @@
+	import asAgregarEmpleado
+	@RestController
+	@postMapping(“/agregarEmpleado”)
+	public ResponseEntity() setAgregarEmpleado (DTODatosRequest params){
+	JSONObject parametros = new JSONObject();
+	parametros.put(“ID_GENERO”, params.get(“gender_id”))
+	parametros.put(“ID_JOB”, params.get(“job_id”))
+	parametros.put(“NAME”, params.get(“name”))
+	parametros.put(“LAST_NAME”, params.get(“last_name”))
+	parametros.put(“BIRTHDATE”, params.get(“birthdate”))
+	try{
+	return ResponseEntity.ok(asAgregarEmpleado.agregaEmpleado(parámetros,params));
+	}catch(exception e)
+	return ResponseEntity.status(httpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+	asAgregarEmpleado
+	string nombre;
+	string apellido;
+	date fechaNacimiento; 
+	int genero;
+	int puesto;
+	DTODatosPuesto = dao.getNombre(params.set(“id”));
+	nombre= DTODatosPuesto.getNombre();
+	apellido= DTODatosPuesto.getApellido();
+	fechaNacimiento= DTODatosPuesto.getFechaNacimiento();
+	
+	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	LocalDate fechaNacimiento2 = LocalDate.parse(fechaNacimiento, formatter);
+Period edad = Period.between(fechaNacimiento2, LocalDate.now());
+If(edad.getYears()<18){
+Return “Es menor de edad”;
+	}
+
+	if(params.set(“name”).equals(nombre) && params.set(“last_name”)){
+	return “ya existe registro del nombre”;  
+	}
+	genero= DTODatosPuesto.getGenero();
+	puesto= DTODatosPuesto.getPuesto();
+	if(genero==0|| puesto==0){
+	return “No existe el genero o cargo puesto”;
+	}
+
+Return new DTOResponse(daoAgregarEmpleado.agregar(params));
